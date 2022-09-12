@@ -3,13 +3,13 @@ title: "Rebase, Squash, Bisect, Patch"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What are rebase, squash, bisect and patch?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
 
 ![GitFlow 1](../fig/44-rebase.png)
 ![GitFlow 1](../fig/45-squash.png)

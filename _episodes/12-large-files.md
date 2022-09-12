@@ -3,13 +3,13 @@ title: "Large Files"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "How do I handle large files in git?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
 
 ![GitFlow 1](../fig/40-largefiles.png)
 

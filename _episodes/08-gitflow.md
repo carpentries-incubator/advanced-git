@@ -3,7 +3,7 @@ title: "GitFlow"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What are the common workflows of the GitFlow branching model?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
