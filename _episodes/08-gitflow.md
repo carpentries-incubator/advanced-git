@@ -44,22 +44,25 @@ Indeed, due to GitFlow’s complexity, it could slow down the development proces
 
 ## Exercise 1: Creating a Feature Branch
 
-First go into the repository directory and check the repository status. Make sure the status is clean and, if not, commit any changes. 
+> - First go into the repository directory and check the repository status. Make sure the status is clean and, if not, commit any changes. 
+>
+> > ## Solution
+> > ~~~
+> > cd advanced-git-training
+> > git status
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
-~~~
-cd advanced-git-training
-git status
-~~~
-{: .language-bash}
-
-Then check out a new feature branch off the development branch. 
+- Check out a new feature branch off the development branch. 
 
 ~~~
 git checkout -b myfeature upstream/develop
 ~~~
 {: .language-bash}
 
-Create a new file that will contain your feature, edit it and commit it:
+- Create a new file that will contain your feature, edit it and commit it:
 
 ~~~
 git add coolstuff.txt
