@@ -90,7 +90,7 @@ git commot -m "Stuff from another feature."
 
 ## Exercise 3: Finish Feature
 
-Now we are going to merge the `myfeature` branch into `develop. Make sure you are still on the `develop` branch by checking the status `git status`. Next create a merge commit from the `myfeature` branch:
+Now we are going to merge the `myfeature` branch into `develop`. Make sure you are still on the `develop` branch by checking the status `git status`. Next create a merge commit from the `myfeature` branch:
 
 ~~~
 git merge --no-ff myfeature
@@ -112,10 +112,38 @@ Finally, check the history again with `git log` and check the direcotry content 
 <!--- ![GitFlow 1](../fig/20-gitflow-4.png) --->
 <!--- ![GitFlow 1](../fig/21-gitflow-5.png) --->
 
+
+## Gitflow Release Branching
+
+First we need to create a release branch. Release branches should start from the `develop` branch.
+
+~~~
+git checkout -b release-1.0 develop
+~~~
+{: .language-bash}
+
+The switch to the `main` branch. We will merge the release branch into `main`. Create a merge commit on `main` from `release-1.0`:
+
+~~~
+git checkout main
+git merge --no-ff release-1.0
+~~~
+{: .language-bash}
+
+Now we can tag the release, push the tag out and delete the release branch:
+
+~~~
+git tag -a 1.0 -m "Version 1.0"
+git push origin 1.0
+git branch -d release-1.0
+~~~
+{: .language-bash}
+
+
+
+<!--- ![GitFlow 1](../fig/22-gitflow-6.png) --->
+
 ## Exercise 4: Gitflow Release
-
-
-![GitFlow 1](../fig/22-gitflow-6.png)
 ![GitFlow 1](../fig/23-gitflow-7.png)
 
 
