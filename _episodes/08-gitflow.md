@@ -52,7 +52,9 @@ git status
 ~~~
 {: .language-bash}
 
-Then check out a new feature branch off the development branch. ~~~
+Then check out a new feature branch off the development branch. 
+
+~~~
 git checkout -b myfeature upstream/develop
 ~~~
 {: .language-bash}
