@@ -256,11 +256,13 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > {: .solution}
 {: .challenge}
 
-![GitFlow 1](../fig/25-gitflow-9.png)
+<!--- ![GitFlow 1](../fig/25-gitflow-9.png) --->
 
 ## Exercise 6: Gitflow Wrap-up
 
 To wrap up the Gitflow workflow we want to make sure we have pushed all our `develop` and `main` changes to the remote repository. 
+<!--- ![GitFlow 1](../fig/26-gitflow-10.png) --->
+![GitFlow 1](../fig/in_case_of_fire.png)
 
 > - First, as always, check the status of your repository and make sure you are still on the `develop` branch:
 > 
@@ -294,11 +296,6 @@ To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
-
-![GitFlow 1](../fig/26-gitflow-10.png)
-
-
-
 
 https://www.flagship.io/git-branching-strategies/
 
