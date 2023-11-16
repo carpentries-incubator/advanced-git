@@ -41,13 +41,89 @@ Indeed, due to GitFlow’s complexity, it could slow down the development proces
 
 ![GitFlow 1](../fig/17-gitflow-1.png)
 ![GitFlow 1](../fig/18-gitflow-2.png)
-![GitFlow 1](../fig/19-gitflow-3.png)
-![GitFlow 1](../fig/20-gitflow-4.png)
-![GitFlow 1](../fig/21-gitflow-5.png)
+
+## Exercise 1: Creating a Feature Branch
+
+First go into the repository directory and check the repository status. Make sure the status is clean and, if not, commit any changes. 
+
+~~~
+cd advanced-git-training
+git status
+~~~
+{: .language-bash}
+
+Then check out a new feature branch off the development branch. ~~~
+git checkout -b myfeature upstream/develop
+~~~
+{: .language-bash}
+
+Create a new file that will contain your feature, edit it and commit it:
+
+~~~
+git add coolstuff.txt
+git commit -m "Add cool stuff."
+~~~
+{: .language-bash}
+
+Now you have a feature branch.
+
+## Exercise 2: Making Changes on the `develop` Branch
+
+Now, while you were developing your feature, someone else merged their changes, `otherstuff.txt` in the develop branch. Let's make those changes here by hand so we can then practice merging our `coolfeature` into the `develop` branch.
+
+Check out the `develop` branch:
+
+~~~
+git checkout develop
+~~~
+{: .language-bash}
+
+Create a new file named, for example, `otherstuff.txt`, edit it, add it and commit it to the develop branch:
+
+~~~
+git add otherstuff.txt
+git commot -m "Stuff from another feature."
+~~~
+{: .language-bash}
+
+## Exercise 3: Finish Feature
+
+Now we are going to merge the `myfeature` branch into `develop. Make sure you are still on the `develop` branch by checking the status `git status`. Next create a merge commit from the `myfeature` branch:
+
+~~~
+git merge --no-ff myfeature
+~~~
+{: .language-bash}
+
+Delete the feature branch:
+
+~~~
+git branch -d myfeature
+~~~
+{: .language-bash}
+
+Finally, check the history again with `git log` and check the direcotry content with `ls`. Is your feature dile here?
+
+
+
+<!--- ![GitFlow 1](../fig/19-gitflow-3.png) --->
+<!--- ![GitFlow 1](../fig/20-gitflow-4.png) --->
+<!--- ![GitFlow 1](../fig/21-gitflow-5.png) --->
+
+## Exercise 4: Gitflow Release
+
+
 ![GitFlow 1](../fig/22-gitflow-6.png)
 ![GitFlow 1](../fig/23-gitflow-7.png)
+
+
 ![GitFlow 1](../fig/24-gitflow-8.png)
+## Exercise 4: Gitflow Hotfix
+
 ![GitFlow 1](../fig/25-gitflow-9.png)
+
+## Exercise 4: Gitflow Wrap-up
+
 ![GitFlow 1](../fig/26-gitflow-10.png)
 
 
