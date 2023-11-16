@@ -115,6 +115,14 @@ Finally, check the history again with `git log` and check the direcotry content 
 
 ## Gitflow Release Branching
 
+
+
+
+
+![GitFlow 1](../fig/22-gitflow-6.png) 
+
+## Exercise 4: Gitflow Release
+
 First we need to create a release branch. Release branches should start from the `develop` branch.
 
 ~~~
@@ -139,20 +147,94 @@ git branch -d release-1.0
 ~~~
 {: .language-bash}
 
+You can now check the Releases tab on GitHub to see your tagged release.
 
+<!---  ![GitFlow 1](../fig/23-gitflow-7.png) --->
 
-<!--- ![GitFlow 1](../fig/22-gitflow-6.png) --->
-
-## Exercise 4: Gitflow Release
-![GitFlow 1](../fig/23-gitflow-7.png)
-
+## Gitflow Hotfix
 
 ![GitFlow 1](../fig/24-gitflow-8.png)
-## Exercise 4: Gitflow Hotfix
+
+## Exercise 5: Gitflow Hotfix
+
+Imagine we made a release but we realized that there is a bug in our cool feature in `coolstuff.txt`. How do we fix that? We make a hotfix on the code which we then merge into both `main` and `develop` and we tag a new hotfix release.
+
+First, create a hotfix branch off main, this is where our released code lives, we need to fix it:
+~~~
+git checkout -b hotfix-1.0.1 main
+~~~
+{: .language-bash}
+
+Now, make some changes to `coolstuff.txt`, add and commit it:
+
+~~~
+git add coolstuff.txt
+git commit -m "Cool hotfix"
+~~~
+{: .language-bash}
+
+Switch back to the main branch and merge the commit:
+
+~~~
+git checkout main
+git merge --no-ff hotfix-1.0.1
+~~~
+{: .language-bash}
+
+Tag a new release and push it to GitHub:
+
+~~~
+git tag -a 1.0.1 -m "Version 1.0.1"
+git push origin 1.0.1
+~~~
+{: .language-bash}
+
+We also need to merge our change to `develop` so that it is propagated into the code that is the same as the released version:
+
+~~~
+git checkout develop
+git merge --no-ff hotfix-1.0.1
+~~~
+{: .language-bash}
+
+Finally we can delete the hotfix branch:
+
+~~~
+git branch -d hotfix-1.0.1
+~~~
+{: .language-bash}
+
 
 ![GitFlow 1](../fig/25-gitflow-9.png)
 
-## Exercise 4: Gitflow Wrap-up
+## Exercise 6: Gitflow Wrap-up
+
+To wrap up the Gitflow workflow we want to make sure we have pushed all our `develop` and `main` changes to the remote repository. 
+
+First, as always, check the status of your repository and make sure you are still on the `develop` branch:
+
+~~~
+git status
+git branch
+git tag
+~~~
+{: .language-bash}
+
+Then push any changes from develop to the remote:
+
+~~~
+git push origin develop
+~~~
+{: .language-bash}
+
+And do the same with the `main` branch:
+
+~~~
+git checkout main
+git push origin main
+~~~
+{: .language-bash}
+
 
 ![GitFlow 1](../fig/26-gitflow-10.png)
 
