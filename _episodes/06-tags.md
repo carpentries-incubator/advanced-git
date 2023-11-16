@@ -27,24 +27,24 @@ git tag
 
 You can create a new tag based on the current state of the repository by providing a tag name to the `git tag` command:
 ~~~
-git tag v1.0
+git tag 1.0.0
 ~~~
 {: .language-bash}
 
-This however creates what is called a "lightweight tag". Lightweight tags are like a branch that doesn't change.
+This however creates what is called a `lightweight tag`. Lightweight tags are like a branch that doesn't change.
 
 You can get information on a tag via `git show`:
 
 ~~~
-git show v1.0
+git show 1.0.0
 ~~~
 {: .language-bash}
 
-Lightweight tags are not recommended in most use cases because they do not save all the information. Instead, use "annotated tags". They are stored as full objects in the Git database: they’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). 
+Lightweight tags are not recommended in most use cases because they do not save all the information. Instead, use `annotated tags` (https://git-scm.com/book/en/v2/Git-Basics-Tagging). They are stored as full objects in the Git database: they’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). 
 
 To create an annotated tag from the current commit:
 ~~~
-git tag -a <tag> -m <message>
+git tag -a 2.0.0 -m <message>
 ~~~
 {: .language-bash}
 
@@ -56,7 +56,8 @@ git tag -a <tag> [<SHA>] -m <message>
 
 To get more information about an existing tag you can "verify" it, which displays that tag's details, including the tagger, date, and message. This only works for annotated commits:
 ~~~
-git tag -v <tag>
+git tag -v 1.0.0
+git tag -v 2.0.0
 ~~~
 {: .language-bash}
 
@@ -80,6 +81,6 @@ git tag -d <tag>
 
 Since tags are frequently used to do releases, it is useful to be aware that codebases and languages have standards on how release versions should be labled. If you are working with an existing code base, follow the standard set by the dev team. If you are developing a library by yourself, follow the standards for the language. For example, the (Python Packaging Authority)[https://packaging.python.org/en/latest/specifications/version-specifiers/#version-specifiers] (and previously(PEP440)[https://peps.python.org/pep-0440/]) specifies the scheme for identifying versions for `python` libraries. 
 
-![Merging 1](../fig/14-tags.png)
+<!--- ![Merging 1](../fig/14-tags.png)---> 
 
 {% include links.md %}
