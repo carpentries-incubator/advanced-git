@@ -147,36 +147,36 @@ Finally, check the history again with `git log` and check the direcotry content 
 
 ## Exercise 4: Gitflow Release
 
-- First we need to create a release branch. Release branches should start from the `develop` branch.
-
-## Solution 
-~~~
-git checkout -b release-1.0 develop
-~~~
-{: .language-bash}
+> - First we need to create a release branch. Release branches should start from the `develop` branch.
+> 
+> > ## Solution 
+> > ~~~
+> > git checkout -b release-1.0 develop
+> > ~~~
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
  
-- The switch to the `main` branch. We will merge the release branch into `main`. Create a merge commit on `main` from `release-1.0`:
-
-## Solution 
-~~~
-git checkout main
-git merge --no-ff release-1.0
-~~~
-{: .language-bash}
+> - The switch to the `main` branch. We will merge the release branch into `main`. Create a merge commit on `main` from `release-1.0`:
+> 
+> > ## Solution 
+> > ~~~
+> > git checkout main
+> > git merge --no-ff release-1.0
+> > ~~~
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
-- Now we can tag the release, push the tag out and delete the release branch:
-
-## Solution 
-~~~
-git tag -a 1.0 -m "Version 1.0"
-git push origin 1.0
-git branch -d release-1.0
-~~~
-{: .language-bash}
+> - Now we can tag the release, push the tag out and delete the release branch:
+> 
+> > ## Solution 
+> > ~~~
+> > git tag -a 1.0 -m "Version 1.0"
+> > git push origin 1.0
+> > git branch -d release-1.0
+> > ~~~
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -199,8 +199,8 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > > git checkout -b hotfix-1.0.1 main
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - Now, make some changes to `coolstuff.txt`, add and commit it:
 > 
@@ -210,8 +210,8 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > > git commit -m "Cool hotfix"
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - Switch back to the main branch and merge the commit:
 > 
@@ -221,8 +221,8 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > > git merge --no-ff hotfix-1.0.1
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - Tag a new release and push it to GitHub:
 > 
@@ -232,8 +232,8 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > > git push origin 1.0.1
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - We also need to merge our change to `develop` so that it is propagated into the code that is the same as the released version:
 > 
@@ -243,8 +243,8 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > > git merge --no-ff hotfix-1.0.1
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - Finally we can delete the hotfix branch:
 > 
@@ -253,8 +253,8 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > > git branch -d hotfix-1.0.1
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 ![GitFlow 1](../fig/25-gitflow-9.png)
 
@@ -271,8 +271,8 @@ To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev
 > > git tag
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - Then push any changes from develop to the remote:
 > 
@@ -281,8 +281,8 @@ To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev
 > > git push origin develop
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
-> {: .challenge}
+> {: .solution}
+{: .challenge}
 
 > - And do the same with the `main` branch:
 > 
@@ -292,7 +292,7 @@ To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev
 > > git push origin main
 > > ~~~
 > > {: .language-bash}
-> > {: .solution}
+> {: .solution}
 {: .challenge}
 
 ![GitFlow 1](../fig/26-gitflow-10.png)
