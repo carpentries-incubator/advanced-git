@@ -91,7 +91,65 @@ git checkout HEAD~2
 
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
+## Exercise: Undoing Changes
 
-![GitFlow 1](../fig/43-undo.png)
+> - Make sure you are still on the `cherry` branch and check the log to see the SHA of the "Merge pill request" commit.
+> 
+> > ## Solution
+> > ~~~
+> > git status
+> > git log
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+
+> - Revert the merge commit that we just inserted. Check the history.
+> 
+> > ## Solution
+> > ~~~
+> > git revert -m 1 <SHA>
+> > git log
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+
+> - Completely throw away the last two commits [DANGER ZONE!!!]. Check the status and the log.
+> 
+> > ## Solution
+> > ~~~
+> > git reset HEAD~2 --hard
+> > git status
+> > git log
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+
+> - Undo another commit but leave it in the staging area. Check the status and log.
+> 
+> > ## Solution
+> > ~~~
+> > git reset HEAD~1
+> > git status
+> > git log
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+
+> - Wrap it up: add and commit the changes.
+> 
+> > ## Solution
+> > ~~~
+> > git add
+> > git commit
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+
+<!--- ![GitFlow 1](../fig/43-undo.png) --->
 
 {% include links.md %}
