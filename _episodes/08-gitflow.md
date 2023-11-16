@@ -55,20 +55,26 @@ Indeed, due to GitFlow’s complexity, it could slow down the development proces
 > {: .solution}
 {: .challenge}
 
-- Check out a new feature branch off the development branch. 
+> - Check out a new feature branch off the development branch. 
+>
+> > ## Solution
+> > ~~~
+> > git checkout -b myfeature upstream/develop
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
-~~~
-git checkout -b myfeature upstream/develop
-~~~
-{: .language-bash}
-
-- Create a new file that will contain your feature, edit it and commit it:
-
-~~~
-git add coolstuff.txt
-git commit -m "Add cool stuff."
-~~~
-{: .language-bash}
+> - Create a new file that will contain your feature, edit it and commit it:
+>
+> > ## Solution
+> > ~~~
+> > git add coolstuff.txt
+> > git commit -m "Add cool stuff."
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
 Now you have a feature branch.
 
@@ -76,38 +82,53 @@ Now you have a feature branch.
 
 Now, while you were developing your feature, someone else merged their changes, `otherstuff.txt` in the develop branch. Let's make those changes here by hand so we can then practice merging our `coolfeature` into the `develop` branch.
 
-Check out the `develop` branch:
+> - Check out the `develop` branch:
+> 
+> > ## Solution
+> > ~~~
+> > git checkout develop
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
-~~~
-git checkout develop
-~~~
-{: .language-bash}
-
-Create a new file named, for example, `otherstuff.txt`, edit it, add it and commit it to the develop branch:
-
-~~~
-git add otherstuff.txt
-git commot -m "Stuff from another feature."
-~~~
-{: .language-bash}
+> - Create a new file named, for example, `otherstuff.txt`, edit it, add it and commit it to the develop branch:
+>
+> > ## Solution
+> > ~~~
+> > git add otherstuff.txt
+> > git commot -m "Stuff from another feature."
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
 ## Exercise 3: Finish Feature
 
-Now we are going to merge the `myfeature` branch into `develop`. Make sure you are still on the `develop` branch by checking the status `git status`. Next create a merge commit from the `myfeature` branch:
+Now we are going to merge the `myfeature` branch into `develop`. Make sure you are still on the `develop` branch by checking the status `git status`.
 
-~~~
-git merge --no-ff myfeature
-~~~
-{: .language-bash}
+> - Create a merge commit from the `myfeature` branch:
+>
+> > ## Solution 
+> > ~~~
+> > git merge --no-ff myfeature
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
-Delete the feature branch:
+> -Delete the feature branch:
+>
+> > ## Solution 
+> > ~~~
+> > git branch -d myfeature
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+ 
 
-~~~
-git branch -d myfeature
-~~~
-{: .language-bash}
-
-Finally, check the history again with `git log` and check the direcotry content with `ls`. Is your feature dile here?
+Finally, check the history again with `git log` and check the direcotry content with `ls`. Is your feature file here?
 
 
 
@@ -126,29 +147,38 @@ Finally, check the history again with `git log` and check the direcotry content 
 
 ## Exercise 4: Gitflow Release
 
-First we need to create a release branch. Release branches should start from the `develop` branch.
+- First we need to create a release branch. Release branches should start from the `develop` branch.
 
+## Solution 
 ~~~
 git checkout -b release-1.0 develop
 ~~~
 {: .language-bash}
+> {: .solution}
+{: .challenge}
+ 
+- The switch to the `main` branch. We will merge the release branch into `main`. Create a merge commit on `main` from `release-1.0`:
 
-The switch to the `main` branch. We will merge the release branch into `main`. Create a merge commit on `main` from `release-1.0`:
-
+## Solution 
 ~~~
 git checkout main
 git merge --no-ff release-1.0
 ~~~
 {: .language-bash}
+> {: .solution}
+{: .challenge}
 
-Now we can tag the release, push the tag out and delete the release branch:
+- Now we can tag the release, push the tag out and delete the release branch:
 
+## Solution 
 ~~~
 git tag -a 1.0 -m "Version 1.0"
 git push origin 1.0
 git branch -d release-1.0
 ~~~
 {: .language-bash}
+> {: .solution}
+{: .challenge}
 
 You can now check the Releases tab on GitHub to see your tagged release.
 
@@ -162,51 +192,69 @@ You can now check the Releases tab on GitHub to see your tagged release.
 
 Imagine we made a release but we realized that there is a bug in our cool feature in `coolstuff.txt`. How do we fix that? We make a hotfix on the code which we then merge into both `main` and `develop` and we tag a new hotfix release.
 
-First, create a hotfix branch off main, this is where our released code lives, we need to fix it:
-~~~
-git checkout -b hotfix-1.0.1 main
-~~~
-{: .language-bash}
+> - First, create a hotfix branch off main, this is where our released code lives, we need to fix it:
+> 
+> > ## Solution 
+> > ~~~
+> > git checkout -b hotfix-1.0.1 main
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-Now, make some changes to `coolstuff.txt`, add and commit it:
+> - Now, make some changes to `coolstuff.txt`, add and commit it:
+> 
+> > ## Solution 
+> > ~~~
+> > git add coolstuff.txt
+> > git commit -m "Cool hotfix"
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-~~~
-git add coolstuff.txt
-git commit -m "Cool hotfix"
-~~~
-{: .language-bash}
+> - Switch back to the main branch and merge the commit:
+> 
+> > ## Solution 
+> > ~~~
+> > git checkout main
+> > git merge --no-ff hotfix-1.0.1
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-Switch back to the main branch and merge the commit:
+> - Tag a new release and push it to GitHub:
+> 
+> > ## Solution 
+> > ~~~
+> > git tag -a 1.0.1 -m "Version 1.0.1"
+> > git push origin 1.0.1
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-~~~
-git checkout main
-git merge --no-ff hotfix-1.0.1
-~~~
-{: .language-bash}
+> - We also need to merge our change to `develop` so that it is propagated into the code that is the same as the released version:
+> 
+> > ## Solution 
+> > ~~~
+> > git checkout develop
+> > git merge --no-ff hotfix-1.0.1
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-Tag a new release and push it to GitHub:
-
-~~~
-git tag -a 1.0.1 -m "Version 1.0.1"
-git push origin 1.0.1
-~~~
-{: .language-bash}
-
-We also need to merge our change to `develop` so that it is propagated into the code that is the same as the released version:
-
-~~~
-git checkout develop
-git merge --no-ff hotfix-1.0.1
-~~~
-{: .language-bash}
-
-Finally we can delete the hotfix branch:
-
-~~~
-git branch -d hotfix-1.0.1
-~~~
-{: .language-bash}
-
+> - Finally we can delete the hotfix branch:
+> 
+> > ## Solution 
+> > ~~~
+> > git branch -d hotfix-1.0.1
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
 ![GitFlow 1](../fig/25-gitflow-9.png)
 
@@ -214,30 +262,38 @@ git branch -d hotfix-1.0.1
 
 To wrap up the Gitflow workflow we want to make sure we have pushed all our `develop` and `main` changes to the remote repository. 
 
-First, as always, check the status of your repository and make sure you are still on the `develop` branch:
+> - First, as always, check the status of your repository and make sure you are still on the `develop` branch:
+> 
+> > ## Solution 
+> > ~~~
+> > git status
+> > git branch
+> > git tag
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-~~~
-git status
-git branch
-git tag
-~~~
-{: .language-bash}
+> - Then push any changes from develop to the remote:
+> 
+> > ## Solution 
+> > ~~~
+> > git push origin develop
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+> {: .challenge}
 
-Then push any changes from develop to the remote:
-
-~~~
-git push origin develop
-~~~
-{: .language-bash}
-
-And do the same with the `main` branch:
-
-~~~
-git checkout main
-git push origin main
-~~~
-{: .language-bash}
-
+> - And do the same with the `main` branch:
+> 
+> > ## Solution 
+> > ~~~
+> > git checkout main
+> > git push origin main
+> > ~~~
+> > {: .language-bash}
+> > {: .solution}
+{: .challenge}
 
 ![GitFlow 1](../fig/26-gitflow-10.png)
 
