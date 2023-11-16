@@ -60,7 +60,7 @@ git tag -v <tag>
 ~~~
 {: .language-bash}
 
-A tag allows you to switch to the version of the code that was tagged to use that version of the code or to see what the code looked at that tag. Here is how to check out a state of the code that has been tagged:
+A tag allows you to switch to the version of the code that was tagged, to use that version of the code, or to see what the code looked at that tag. Here is how to check out a state of the code that has been tagged:
 ~~~
 git checkout <tag> 
 ~~~
@@ -72,13 +72,13 @@ git push origin <tag>
 ~~~
 {: .language-bash}
 
-Delete a tag:
+And of course you can delete a tag. This does not delete the commit, just removes the marker/lable. Delete a tag:
 ~~~
 git tag -d <tag>
 ~~~
 {: .language-bash}
 
-
+Since tags are frequently used to do releases, it is useful to be aware that codebases and languages have standards on how release versions should be labled. If you are working with an existing code base, follow the standard set by the dev team. If you are developing a library by yourself, follow the standards for the language. For example, the (Python Packaging Authority)[https://packaging.python.org/en/latest/specifications/version-specifiers/#version-specifiers] (and previously(PEP440)[https://peps.python.org/pep-0440/]) specifies the scheme for identifying versions for `python` libraries. 
 
 ![Merging 1](../fig/14-tags.png)
 
