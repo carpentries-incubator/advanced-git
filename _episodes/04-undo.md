@@ -93,7 +93,7 @@ https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 
 ## Exercise: Undoing Changes
 
-> - Make sure you are still on the `cherry` branch and check the log to see the SHA of the "Merge pill request" commit.
+> - Create a new branch called `hotfix`. Create a new file and make 3-4 commits in that file. Check the log to see the SHA of the last commit.
 > 
 > > ## Solution
 > > ~~~
@@ -104,7 +104,7 @@ https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 > {: .solution}
 {: .challenge}
 
-> - Revert the merge commit that we just inserted. Check the history.
+> - Revert the last commit that we just inserted. Check the history.
 > 
 > > ## Solution
 > > ~~~
@@ -143,8 +143,8 @@ https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
 > 
 > > ## Solution
 > > ~~~
-> > git add
-> > git commit
+> > git add .
+> > git commit -m "Message"
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
