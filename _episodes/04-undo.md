@@ -41,7 +41,7 @@ keypoints:
 
 ## Git Revert
 
-Reverting undoes a commit by creating a new commit. This is a safe way to undo changes, as it has no chance of re-writing the commit history. For example, the following command will figure out the changes contained in the 2nd to last commit, create a new commit undoing those changes, and tack the new commit onto the existing project.
+Reverting undoes a commit by creating a new commit. This is a safe way to undo changes, as it has no chance of re-writing the commit history. For example, the following command will figure out the changes contained in the second to last commit, create a new commit undoing those changes, and tack the new commit onto the existing project.
 
 ~~~
 git revert HEAD~1
@@ -154,8 +154,7 @@ git checkout alt-history
 {: .language-bash}
 
 
-https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
-Also OMG: http://blog.kfish.org/2010/04/git-lola.html
+More about [resetting, checking out, and reverting](https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting)
 
 ## Exercise: Undoing Changes
 
@@ -181,7 +180,7 @@ Also OMG: http://blog.kfish.org/2010/04/git-lola.html
 > {: .solution}
 {: .challenge}
 
-> - Completely throw away the last two commits [DANGER ZONE!!!]. Check the status and the log.
+> - Completely throw away the last two commits [**DANGER ZONE**!!!]. Check the status and the log.
 > 
 > > ## Solution
 > > ~~~
