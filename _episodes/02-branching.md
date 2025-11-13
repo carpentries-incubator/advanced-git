@@ -24,7 +24,7 @@ The diagram above visualizes a repository with two isolated lines of development
 
 The implementation behind Git branches is much more lightweight than other version control system models. Instead of copying files from directory to directory, Git stores a branch as a reference to a commit. In this sense, a branch represents the tip of a series of commits—it's not a container for commits. The history for a branch is extrapolated through the commit relationships.
 
-(https://www.atlassian.com/git/tutorials/using-branches)
+More about [using branches](https://www.atlassian.com/git/tutorials/using-branches)
 
 ## What is a branch?
 
@@ -106,7 +106,7 @@ The special symbol `"HEAD"` can always be used to refer to the current branch. I
 
 ~~~
 $ cat .git/HEAD
-ref: refs/heads/master
+ref: refs/heads/main
 ~~~
 {: .language-bash}
 
