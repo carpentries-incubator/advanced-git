@@ -107,7 +107,7 @@ git fetch origin main
 ~~~
 {: .language-bash}
 
-https://www.atlassian.com/git/tutorials/syncing/git-fetch
+More about [git fetch](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
 
 [comment]: <> (![Review 2](../fig/03-recap.png))
 
