@@ -10,29 +10,29 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
-Considered to be a bit complicated and advanced for many of today’s projects, `GitFlow` enables parallel development where developers can work separately from the master branch on features where a feature branch is created from the master branch.
+Considered to be a bit complicated and advanced for many of today’s projects, `GitFlow` enables parallel development where developers can work separately from the `main` branch on features where a feature branch is created from the `main` branch.
 
-Afterwards, when changes are complete, the developer merges these changes back to the master branch for release.
+Afterwards, when changes are complete, the developer merges these changes back to the `main` branch for release.
 
 This branching strategy consists of the following branches:
 
-- Master
-- Develop
-- Feature- to develop new features that branches off the develop branch
-- Release- help prepare a new production release; usually branched from the develop branch and must be merged back to both develop and master
-- Hotfix- also helps prepare for a release but unlike release branches, hotfix branches arise from a bug that has been discovered and must be resolved; it enables developers to keep working on their own changes on the develop branch while the bug is being fixed.
+- `main`
+- `dev`
+- `Feature` - to develop new features that branches off the `dev` branch
+- `Release` - help prepare a new production release; usually branched from the `dev` branch and must be merged back to both `dev` and `main`
+- `Hotfix` - also helps prepare for a release but unlike release branches, hotfix branches arise from a bug that has been discovered and must be resolved; it enables developers to keep working on their own changes on the `dev` branch while the bug is being fixed.
 
-The main and develop branches are considered to be the main branches, with an infinite lifetime, while the rest are supporting branches that are meant to aid parallel development among developers, usually short-lived.
+The `main` and `dev` branches are considered to be the main branches, with an infinite lifetime, while the rest are supporting branches that are meant to aid parallel development among developers, usually short-lived.
 
 ## GitFlow pros and cons
 
-Perhaps the most obvious benefit of this model is that it allows for parallel development to protect the production code so the main branch remains stable for release while developers work on separate branches.
+Perhaps the most obvious benefit of this model is that it allows for parallel development to protect the production code so the `main` branch remains stable for release while developers work on separate branches.
 
-Moreover, the various types of branches make it easier for developers to organize their work. This strategy contains separate and straightforward branches for specific purposes though for that reason it may become complicated for many use cases.
+Moreover, the various types of branches make it easier for deveopers to organize their work. This strategy contains separate and straightforward branches for specific purposes though for that reason it may become complicated for many use cases.
 
 It is also ideal when handling multiple versions of the production code.
 
-However, as more branches are added, they may become difficult to manage as developers merge their changes from the development branch to the main. Developers will first need to create the release branch then make sure any final work is also merged back into the development branch and then that release branch will need to be merged into the main branch.
+However, as more branches are added, they may become difficult to manage as developers merge their changes from the `dev` branch to the `main` branch. Developers will first need to create the release branch then make sure any final work is also merged back into the `dev` branch and then that release branch will need to be merged into the `main` branch.
 
 In the event that changes are tested and the test fails, it would become increasingly difficult to figure out where the issue is exactly as developers are lost in a sea of commits.
 
@@ -60,7 +60,7 @@ Indeed, due to GitFlow’s complexity, it could slow down the development proces
 > > ## Solution
 > > ~~~
 > > git fetch upstream
-> > git checkout -b myfeature upstream/develop
+> > git checkout -b myfeature upstream/dev
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -79,21 +79,21 @@ Indeed, due to GitFlow’s complexity, it could slow down the development proces
 
 Now you have a feature branch.
 
-## Exercise 2: Making Changes on the `develop` Branch
+## Exercise 2: Making Changes on the `dev` Branch
 
-Now, while you were developing your feature, someone else merged their changes, `otherstuff.txt` in the develop branch. Let's make those changes here by hand so we can then practice merging our `coolfeature` into the `develop` branch.
+Now, while you were developing your feature, someone else merged their changes, `otherstuff.txt` in the `dev` branch. Let's make those changes here by hand so we can then practice merging our `coolfeature` into the `dev` branch.
 
-> - Check out the `develop` branch:
+> - Check out the `dev` branch:
 > 
 > > ## Solution
 > > ~~~
-> > git checkout develop
+> > git checkout dev
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
-> - Create a new file named, for example, `otherstuff.txt`, edit it, add it and commit it to the develop branch:
+> - Create a new file named, for example, `otherstuff.txt`, edit it, add it and commit it to the `dev` branch:
 >
 > > ## Solution
 > > ~~~
@@ -106,7 +106,7 @@ Now, while you were developing your feature, someone else merged their changes, 
 
 ## Exercise 3: Finish Feature
 
-Now we are going to merge the `myfeature` branch into `develop`. Make sure you are still on the `develop` branch by checking the status `git status`.
+Now we are going to merge the `myfeature` branch into `dev`. Make sure you are still on the `dev` branch by checking the status `git status`.
 
 > - Create a merge commit from the `myfeature` branch:
 >
@@ -118,7 +118,7 @@ Now we are going to merge the `myfeature` branch into `develop`. Make sure you a
 > {: .solution}
 {: .challenge}
 
-> -Delete the feature branch:
+> - Delete the feature branch:
 >
 > > ## Solution 
 > > ~~~
@@ -148,11 +148,11 @@ Finally, check the history again with `git log` and check the direcotry content 
 
 ## Exercise 4: Gitflow Release
 
-> - First we need to create a release branch. Release branches should start from the `develop` branch.
+> - First we need to create a release branch. Release branches should start from the `dev` branch.
 > 
 > > ## Solution 
 > > ~~~
-> > git checkout -b release-1.0 develop
+> > git checkout -b release-1.0 dev
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -191,9 +191,9 @@ You can now check the Releases tab on GitHub to see your tagged release.
 
 ## Exercise 5: Gitflow Hotfix
 
-Imagine we made a release but we realized that there is a bug in our cool feature in `coolstuff.txt`. How do we fix that? We make a hotfix on the code which we then merge into both `main` and `develop` and we tag a new hotfix release.
+Imagine we made a release but we realized that there is a bug in our cool feature in `coolstuff.txt`. How do we fix that? We make a hotfix on the code which we then merge into both `main` and `dev` and we tag a new hotfix release.
 
-> - First, create a hotfix branch off main, this is where our released code lives, we need to fix it:
+> - First, create a hotfix branch off `main`, this is where our released code lives, we need to fix it:
 > 
 > > ## Solution 
 > > ~~~
@@ -214,7 +214,7 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > {: .solution}
 {: .challenge}
 
-> - Switch back to the main branch and merge the commit:
+> - Switch back to the `main` branch and merge the commit:
 > 
 > > ## Solution 
 > > ~~~
@@ -236,11 +236,11 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 > {: .solution}
 {: .challenge}
 
-> - We also need to merge our change to `develop` so that it is propagated into the code that is the same as the released version:
+> - We also need to merge our change to `dev` so that it is propagated into the code that is the same as the released version:
 > 
 > > ## Solution 
 > > ~~~
-> > git checkout develop
+> > git checkout dev
 > > git merge --no-ff hotfix-1.0.1
 > > ~~~
 > > {: .language-bash}
@@ -261,11 +261,11 @@ Imagine we made a release but we realized that there is a bug in our cool featur
 
 ## Exercise 6: Gitflow Wrap-up
 
-To wrap up the Gitflow workflow we want to make sure we have pushed all our `develop` and `main` changes to the remote repository. 
+To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev` and `main` changes to the remote repository. 
 <!--- ![GitFlow 1](../fig/26-gitflow-10.png) --->
 ![GitFlow 1](../fig/in_case_of_fire.png)
 
-> - First, as always, check the status of your repository and make sure you are still on the `develop` branch:
+> - First, as always, check the status of your repository and make sure you are still on the `dev` branch:
 > 
 > > ## Solution 
 > > ~~~
@@ -277,11 +277,11 @@ To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev
 > {: .solution}
 {: .challenge}
 
-> - Then push any changes from develop to the remote:
+> - Then push any changes from `dev` to the remote:
 > 
 > > ## Solution 
 > > ~~~
-> > git push origin develop
+> > git push origin dev
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -298,7 +298,7 @@ To wrap up the Gitflow workflow we want to make sure we have pushed all our `dev
 > {: .solution}
 {: .challenge}
 
-https://www.flagship.io/git-branching-strategies/
+More on [branching strategies](https://www.flagship.io/git-branching-strategies/)
 
 
 {% include links.md %}
