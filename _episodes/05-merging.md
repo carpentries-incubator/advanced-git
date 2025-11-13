@@ -3,7 +3,7 @@ title: "Merging"
 teaching: 0
 exercises: 0
 questions:
-- "How do I merge a branch changes?"
+- "How do I merge changes on a branch?"
 objectives:
 - "Learn about `git merge`."
 keypoints:
@@ -11,13 +11,13 @@ keypoints:
 - "`git merge --ff-only` is a good way to pull down changes from remote"
 ---
 
-When you are collaborating, you will have to merge a branch independent if your branch may or may not have diverged from the main branch. Most of the Git hosting platform like GiHub or GitLab allows you to merge a branch from their web interface but you can also merge the branches from your machine using `git merge`.
+When you are collaborating, you will have to merge a branch whether or not it has diverged from the main branch. Most of the Git hosting platforms like GiHub or GitLab allow you to merge a branch from their web interface but you can also merge the branches from your machine using `git merge`.
 
-There are 2 ways to merge:
+There are two ways to merge:
 
-- non-fast-forward merged (recommended)
+- non-fast-forward merge (recommended)
 
-- fast forward merged
+- fast forward merge
 
 ![Merging diagram.](../fig/09-merging.png)
 
@@ -32,7 +32,7 @@ git checkout -b develop upstream/develop
 
 ## Non-fast-forwad Merge
 
-Merges branch by creating a merge commit. Prompts for merge commit message. Ideal for merging two branches.
+Merge branches by creating a merge commit, which prompts for merge commit message. This is ideal for merging two branches.
 
 ~~~
 git checkout main
@@ -40,7 +40,7 @@ git merge --no-ff <branch> -m "Message"
 ~~~
 {: .language-bash}
 
-The `--no-ff` flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature.
+The `--no-ff` flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that added the feature.
 
 ## Exercise: Creating a non-fast-forwad merge.
 
@@ -73,7 +73,7 @@ The `--no-ff` flag causes the merge to always create a new commit object, even i
 
 ## Fast-forward Merge
 
-If there are no conflicts with the main branch, a "fast-forward" merge can be executed with. This will NOT create a merge commit! Aborts merge if it cannot be done.
+If there are no conflicts with the main branch, a "fast-forward" merge can be executed with the command listed below. This will NOT create a merge commit! Additionally, this command aborts the merge if it cannot be done.
 Ideal for updating a branch from remote.
 
 ~~~
@@ -84,7 +84,7 @@ git merge --ff-only <branch>
 
 If using the fast-forward merge, it is impossible to see from the `git` history which of the commit objects together have implemented a feature. You would have to manually read all the log messages. Reverting a whole feature (i.e. a group of commits), is a true headache in the latter situation, whereas it is easily done if the --no-ff flag was used.
 
-For a good illustration of fast-forward merge (and other concepts), see this thread: https://stackoverflow.com/questions/9069061/what-effect-does-the-no-ff-flag-have-for-git-merge
+For a good illustration of fast-forward merge (and other concepts), see this [thread](https://stackoverflow.com/questions/9069061/what-effect-does-the-no-ff-flag-have-for-git-merge)
 
 ## Exercise: Creating a fast-forwad merge.
 
@@ -97,7 +97,7 @@ For a good illustration of fast-forward merge (and other concepts), see this thr
 > * 86c4247 Add README
 > ~~~
 > 
-> Is possible to run a fast-forward merge to incorporate the branch `remote` into `main`?
+> Is it possible to run a fast-forward merge to incorporate the branch `remote` into `main`?
 > > ## Solution
 > > It is not possible to run a fast-forward merge because of commit `a78b99f`. 
 > > {: .language-bash}
@@ -106,18 +106,16 @@ For a good illustration of fast-forward merge (and other concepts), see this thr
 
 ### Three-way Merge
 
-Similar to `--no-ff`, but there may be dragons. Forced upon you when there’s an intermediate change since you branched.
-May prompt your to manually resolve
+Similar to `--no-ff`, but there may be dragons. This method is forced upon you when there’s an intermediate change since you branched.
+This may prompt you to manually resolve
 
 ~~~
 git merge <branch> [-s <strategy>]
 ~~~
 {: .language-bash}
 
-See https://git-scm.com/docs/merge-strategies for a zillion options (“patience”, “octopus”, etc),  But also git is only so smart and you are probably smarter.
+See [merge strategies](https://git-scm.com/docs/merge-strategies) for several options (“patience”, “octopus”, etc). Whichever strategy you use, git is only so smart and you are probably smarter.
 
-
-Merging strategies: https://git-scm.com/docs/merge-strategies
 
 [comment]: <> (![Merging 1](../fig/09-merging-1.png))
 [comment]: <> (![Merging 2](../fig/10-merging-2.png)
@@ -125,7 +123,7 @@ Merging strategies: https://git-scm.com/docs/merge-strategies
 [comment]: <> (![Merging no FF](../fig/12-merging-noff.png))
 [comment]: <> (![Merging 3 Way](../fig/13-merging-3way.png))
 
-https://nvie.com/posts/a-successful-git-branching-model/
+More on [a successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
 
 Note: there are a number of external tools that have a graphical interface to allow for merge conflict resolution. Some of these include: kdiff3 (Windows, Mac, Linux), Meld (Windows, Linux), P4Merge (Windows, Mac, Linux),  opendiff (Mac), vimdiff (for Vim users), Beyond Compare, GitHub web interface. We do not endorse any of them and use at your own risk. In any case, using a graphical interface does not substitute for understanding what is happening under the hood.
 
