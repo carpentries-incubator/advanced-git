@@ -3,7 +3,7 @@ title: "Remote Repositories"
 teaching: 0
 exercises: 0
 questions:
-- "How do I connect my code to other versions of the it?"
+- "How do I connect my code to other versions of it?"
 objectives:
 - "Learn about remote repositories."
 keypoints:
@@ -12,9 +12,9 @@ keypoints:
 - "Other git commands (`git fetch`, `git push`, `git pull`) use these bookmarks to carry out their syncing responsibilities."
 ---
 
-https://www.atlassian.com/git/tutorials/syncing
-
 Git's distributed collaboration model, which gives every developer their own copy of the repository, complete with its own local history and branch structure. Users typically need to share a series of commits rather than a single "changeset". Instead of committing a "changeset" from a working copy to the central repository, Git lets you share entire branches between repositories.
+
+More about [remote repositories](https://www.atlassian.com/git/tutorials/syncing)
 
 ## Git remote
 
@@ -123,7 +123,7 @@ git checkout -b <branch> upstream/main
 
 Now we can set the MPIA version of our repository as the upstream for our local copy.
 
-Exercies: set the https://github.com/mpi-astronomy/advanced-git-training as the upstream locally.
+Exercies: set [this repository](https://github.com/mpi-astronomy/advanced-git-training) locally as the upstream.
 
 ~~~
 git remote add upstream https://github.com/mpi-astronomy/advanced-git-training.git
